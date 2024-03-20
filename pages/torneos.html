@@ -3,103 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
     <link href="https://fonts.cdnfonts.com/css/quantico" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="../images/pokeball-xIcon.webp" type="image/x-icon">
     <title>Torneos Pokémon TCG</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
 </head>
 <body>
-
-    <header class="tournaments">
-        <img class="logo" src="../images/logo-banner.webp" alt="Logo Pokémon TCG">
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./decks.html">Decks</a> </li>
-                <li><a href="./torneos.html">Torneos</a> </li>
-                <li><a href="./jugadores.html">Jugadores</a> </li>
-                <li><a href="./contacto.html">Contacto</a> </li>
-            </ul>
+    <header class="bg-black" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo-banner.webp" width="200px" alt="Logo Pokémon TCG"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto w-100 d-flex justify-content-evenly">
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/decks.html">Decks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/torneos.html">Torneos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/jugadores.html">Jugadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../pages/contacto.html">Contacto</a>
+                </li>
+                </ul>
+            </div>
+            </div>
         </nav>
     </header>
 
-<div class="container">
+    <main>
+    <div class="container">
         <div class="text-home-tournaments">
           <h1>Torneos</h1>
           <p>Te dejamos los últimos torneos, con sus ganadores y decks utilizados.</p>
           <br>
         </div>
     </div>
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src="../images/tournaments/dortmund-regional.webp" alt="Dortmund Regional banner">
-            <span>Dortmund Regional</span>
-            <br>
-            <br>
-            <p>🥇 Owyn Kamerman - Chien Pao</p>
-            <p>🥈 Jelle van Kampen - Gholdengo</p>
-            <p>🥉 Benjamin Pham - LostZone Giratina</p>
-        </div>
-        <div class="grid-item">
-            <img src="../images/tournaments/knoxville-regional.webp" alt="Knoxville Regional banner">
-            <span>Knoxville Regional</span>
-            <br>
-            <br>
-            <p>🥇 Ryan Antonucci - Gardevoir</p>
-            <p>🥈 Aidan Khus - LostZone Box</p>
-            <p>🥉 Ian Robb - LostZone Giratina</p>
-        </div>
-        <div class="grid-item">
-            <img src="../images/tournaments/melbourne-regional.webp" alt="Melbourne Regional banner">
-            <span>Melbourne Regional</span>
-            <br>
-            <br>
-            <p>🥇 Brent Tonisson - LostZone Giratina</p>
-            <p>🥈 Haru Nishikawa - Charizard EX</p>
-            <p>🥉 Natalie Millar - Gardevoir</p>
-        </div>
-    </div> 
 
-    <h2>Próximos torneos</h2>
-    <div class="grid-container">
-        <div class="grid-item">
-            <img src="../images/tournaments/goiana-regional.webp" alt="Goiana Regional banner">
-            <span>Goiana Regional</span>
+    <div class="card-group">
+        <div class="card p-2">
+            <img src="../images/tournaments/dortmund-regional.webp" class="card-img-top" alt="Dortmund Regional Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Dortmund Regional</h5>
+                <p class="card-text">🥇 Owyn Kamerman - Chien Pao</p>
+                <p class="card-text">🥈 Jelle van Kampen - Gholdengo</p>
+                <p class="card-text">🥉 Benjamin Pham - LostZone Giratina</p>
+            </div>
         </div>
-        <div class="grid-item">
-            <img src="../images/tournaments/vancouver-regional.webp" alt="Vancouver Regional banner">
-            <span>Vancouver Regional</span>
+        <div class="card p-2">
+            <img src="../images/tournaments/knoxville-regional.webp" class="card-img-top" alt="Knoxville Regional Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Knoxville Regional</h5>
+                <p class="card-text">🥇 Ryan Antonucci - Gardevoir</p>
+                <p class="card-text">🥈 Aidan Khus - LostZone Box</p>
+                <p class="card-text">🥉 Ian Robb - LostZone Giratina</p>
+            </div>
         </div>
-        <div class="grid-item">
-            <img src="../images/tournaments/europe-international.webp" alt="Banner Cameponato Internacional Europeo">
-            <span>Campeonato Internacional Europeo</span>
+        <div class="card p-2">
+            <img src="../images/tournaments/melbourne-regional.webp" class="card-img-top" alt="Melbourne Regional Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Melbourne Regional</h5>
+                <p class="card-text">🥇 Brent Tonisson - LostZone Giratina</p>
+                <p class="card-text">🥈 Haru Nishikawa - Charizard EX</p>
+                <p class="card-text">🥉 Natalie Millar - Gardevoir</p>
+            </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <footer>
-            <div class="footer">
-                <div class="row">
-                    <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://www.twitch.tv/pokemontc"><i class="fa-brands fa-twitch"></i></a>
-                </div>
-                <div class="row">
-                    <ul>
-                        <li><a href="../index.html">Inicio</a></li>
-                        <li><a href="./decks.html">Decks</a> </li>
-                        <li><a href="./torneos.html">Torneos</a> </li>
-                        <li><a href="./jugadores.html">Jugadores</a> </li>
-                        <li><a href="./contacto.html">Contacto</a> </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <p>Página sin fines de lucro || Alberto Koll ©</p>
-                </div>
+    <h2>Próximos torneos</h2>
+    <div class="card-group">
+        <div class="card p-2">
+            <img src="../images/tournaments/goiana-regional.webp" class="card-img-top" alt="Goiana Regional Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Goiana Regional</h5>
             </div>
-        </footer>
+        </div>
+        <div class="card p-2">
+            <img src="../images/tournaments/vancouver-regional.webp" class="card-img-top" alt="Vancouver Regional Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Vancouver Regional</h5>
+            </div>
+        </div>
+        <div class="card p-2">
+            <img src="../images/tournaments/europe-international.webp" class="card-img-top" alt="Campeonato Internacional Europeo Banner">
+            <div class="card-body text-center">
+                <h5 class="card-title">Campeonato Internacional Europeo</h5>
+            </div>
+        </div>
+    </div>
+</main>
 
+    <footer>
+        <div class="footer-mine">
+            <div class="row-mine">
+                <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.twitch.tv/pokemontcg"><i class="fa-brands fa-twitch"></i></a>
+            </div>
+            <div class="row-mine">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../pages/decks.html">Decks</a> </li>
+                    <li><a href="../pages/torneos.html">Torneos</a> </li>
+                    <li><a href="../pages/jugadores.html">Jugadores</a> </li>
+                    <li><a href="../pages/contacto.html">Contacto</a> </li>
+                </ul>
+            </div>
+            <div class="row-mine">
+                <p>Página sin fines de lucro || Alberto Koll ©</p>
+            </div>
+        </div>
+    </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-Hello good!
+Hello!
 
 I am taking the Web Development course at CoderHouse.
 
