@@ -3,99 +3,41 @@
     padding: 0;
 }
 
-body{
-    font-family: "Quantico";
-}
 main{
     min-height: 800px;
 }
 /*Logo y header de todos los HTML*/
 
-header{
-    background-size: cover;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo{
-    display: flex;
-    z-index: 99;
-    height: 40px;
-    width: 75px;
-}
 /*Fin de logo y header para todas los HTML*/
 
 
-/* Banners para cada sección */
-.home{
-    background-image: url(../images/headers/home.webp);
-    background-position:center;
-}
-
-.decks{
-    background-image: url(../images/headers/decks.webp);
-    background-position:center;
-}
-
-.players{
-    background-image: url(../images/headers/players.webp);
-    background-position: left;
-}
-
-.tournaments{
-    background-image: url(../images/headers/tournaments.webp);
-    background-position: center;
-}
-
-.contact{
-    background-image: url(../images/headers/contact.webp);
-    background-position:center;
-}
-/*Fin de los banners*/
-
-
-
 /*Estilos del NAV para todas las secciones*/
-nav{
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-nav ul{
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: dashed;
-    color: black;
-    font-weight: bold;
-    font-size: 11px;
-    padding: 15px;
-    border-radius: 100px;
-    transition: background-color 0.5s;
+.nav-item{
+    font-size: 20px;
 }
 
 nav ul li a:hover {
-    color:red;
-    background-color: black;
+    color:red !important;
 }
 /*Fin del nav*/
 
 
 
 /*Container para todas las secciones*/
-.container {
+h1{
+    padding: 30px;
     text-align: center;
 }
 
-.container h1{
+.bg-grey {
+    background-color: #c0c0c049;
+}
+
+.container-home {
+    text-align: center;
+}
+
+.container-home h1{
     font-size: 30px;
     margin: 10px;
 }
@@ -108,16 +50,15 @@ h2{
 
 
 /*Home*/
-/* .text-home {
-
-} */
-
 .text-home p{
     margin-top: 10px;
 }
 
-.container .img-home img{
-    width: 70%;
+.background-section {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 /*Fin del Home*/
 
@@ -128,19 +69,6 @@ h2{
     font-size: 20px; 
 }
 
-.images-decks {
-    display: flex;
-    justify-content: center;
-    width: 60%;
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
-
-.images-decks img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 70px;
-}
 /*Fin de Decks*/
 
 
@@ -150,27 +78,8 @@ h2{
     font-size: 20px;
 }
 
-.grid-container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-item{
-    text-align: center;
-    padding: 50px;
-}
-
-.grid-item img{
-    width: 450px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.grid-item span{
-    font-size: 25px;
-    padding: 50px;
+.card{
+    border: 0 !important;
 }
 /*Fin de torneos*/
 
@@ -183,32 +92,9 @@ h2{
     font-size: 15px;
 }
 
-.table-container {
-    padding: 30px;
+.nacionality-image{
     display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.table-container thead{
-    background: lightblue;
-    color: black;
-}
-
-.table-container thead tr th{
-    font-size: 25px;
-    border: 1px solid black;
-}
-
-.table-container tbody tr td{
-    padding: 30px;
-    color: black;
-    font-size: 20px;
-    border: 1px solid black;
-}
-
-.table-container img{
-    width: 150px;
+    width: 10%;
 }
 /*Fin de Jugadores*/
 
@@ -244,84 +130,45 @@ h2{
 
 
 /*Footer general*/
-footer{
+.footer-mine{
     background:#000;
-    font-family: "Quantico";
     text-align:center;
 }
     
-footer .row{
+.footer-mine .row-mine{
     padding: 10px;
     color:white;
     font-size: 15px;
 }
     
-footer .row a{
-    text-decoration:none;
+.footer-mine .row-mine a{
+    text-decoration: none;
     color:white;
 }
+
     
-footer .row a:hover{
+.footer-mine .row-mine a:hover{
     color:red;
 }
     
-footer .row ul li{
+.footer-mine .row-mine ul li{
+    text-decoration: none;
     display:inline-block;
     margin:0px 20px;
 }
-    
-footer .row a i{
+
+.footer-mine .row-mine a i{
     font-size: 15px;
     margin:0% 1%;
 }
 
-footer .row p{
+.footer-mine .row-mine p{
     font-size: 10px;
 }
 /*Fin del Footer*/
 
-
-@media only screen and (min-width: 320px) {
-    nav ul li a {
-        font-size: 8px;
-    }
-}
-
-
-@media only screen and (min-width: 600px) {
-    .logo{
-        height: 150px;
-        width: 250px;
-    }    
-    header{
-        flex-direction:unset;
-        height: 160px;
-        display: flex;
-        width: 100%;
-    }
-    nav{
-        display: flex;
-        margin: auto;
-    }
-    nav ul li a {
-        margin: 50px;
-        font-size: 25px;
-    }
-    .container{
+/* @media only screen and (min-width: 1024px){ 
+    .navbar-expand-lg {
         display: flex;
     }
-    .text-home h1{
-        padding: 30px;
-        font-size: 30px;
-    }
-    .text-home p{
-        margin-top:30px;
-        font-size: 20px;
-        width: 600px;
-    }
-
-    .img-home {
-        width: 50%;
-        order: -1;
-    }
-}
+} */

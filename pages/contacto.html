@@ -8,21 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="shortcut icon" href="../images/pokeball-xIcon.webp" type="image/x-icon">
     <title>Contacto Pokémon TCG</title>
+    <link rel="stylesheet" href="../styles/bootstrap.min.css">
 </head>
 <body>
 
-    <header class="contact">
-        <img class="logo" src="../images/logo-banner.webp" alt="Logo Pokémon TCG">
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./decks.html">Decks</a> </li>
-                <li><a href="./torneos.html">Torneos</a> </li>
-                <li><a href="./jugadores.html">Jugadores</a> </li>
-                <li><a href="./contacto.html">Contacto</a> </li>
+  <header class="bg-black" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html"><img src="../images/logo-banner.webp" width="200px" alt="Logo Pokémon TCG"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto w-100 d-flex justify-content-evenly">
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/decks.html">Decks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/torneos.html">Torneos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/jugadores.html">Jugadores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../pages/contacto.html">Contacto</a>
+            </li>
             </ul>
-        </nav>
-    </header>
+        </div>
+        </div>
+    </nav>
+</header>
 
     <main>
     <!-- <h1 class="h1-contact">Mandanos tu duda! Te vamos a contestar lo antes posible</h1>
@@ -61,27 +76,29 @@
 
 </main>
 
-    <footer>
-        <div>
-            <div class="row">
-                <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-twitter"></i></a>
-                <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.twitch.tv/pokemontc"><i class="fa-brands fa-twitch"></i></a>
-            </div>
-            <div class="row">
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="./decks.html">Decks</a> </li>
-                    <li><a href="./torneos.html">Torneos</a> </li>
-                    <li><a href="./jugadores.html">Jugadores</a> </li>
-                    <li><a href="./contacto.html">Contacto</a> </li>
-                </ul>
-            </div>
-            <div class="row">
-                <p>Página sin fines de lucro || Alberto Koll ©</p>
-            </div>
-        </div>
-    </footer>
+<footer>
+  <div class="footer-mine">
+      <div class="row-mine">
+          <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.twitch.tv/pokemontcg"><i class="fa-brands fa-twitch"></i></a>
+      </div>
+      <div class="row-mine">
+          <ul>
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="../pages/decks.html">Decks</a> </li>
+              <li><a href="../pages/torneos.html">Torneos</a> </li>
+              <li><a href="../pages/jugadores.html">Jugadores</a> </li>
+              <li><a href="../pages/contacto.html">Contacto</a> </li>
+          </ul>
+      </div>
+      <div class="row-mine">
+          <p>Página sin fines de lucro || Alberto Koll ©</p>
+      </div>
+  </div>
+</footer>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
