@@ -6,10 +6,6 @@
 main{
     min-height: 800px;
 }
-/*Logo y header de todos los HTML*/
-
-/*Fin de logo y header para todas los HTML*/
-
 
 /*Estilos del NAV para todas las secciones*/
 .nav-item{
@@ -21,8 +17,6 @@ nav ul li a:hover {
 }
 /*Fin del nav*/
 
-
-
 /*Container para todas las secciones*/
 h1{
     padding: 30px;
@@ -33,26 +27,19 @@ h1{
     background-color: #c0c0c049;
 }
 
-.container-home {
-    text-align: center;
-}
-
-.container-home h1{
-    font-size: 30px;
-    margin: 10px;
-}
-
 h2{
     text-align: center;
-    padding: 30px;
+    padding: 20px;
+    font-size: 40px;
+}
+
+p{
+    font-size: 20px;
 }
 /*Fin del container*/
 
 
 /*Home*/
-.text-home p{
-    margin-top: 10px;
-}
 
 .background-section {
     height: 100vh;
@@ -61,16 +48,6 @@ h2{
     background-size: cover;
 }
 /*Fin del Home*/
-
-
-/*Decks*/
-.text-home-decks{
-    text-align: center;
-    font-size: 20px; 
-}
-
-/*Fin de Decks*/
-
 
 /*Torneos*/
 .text-home-tournaments{
@@ -83,48 +60,10 @@ h2{
 }
 /*Fin de torneos*/
 
-/*Jugadores*/
-.text-home-players{
-    text-align: center;
-    font-size: 20px; 
-}
-.container-players p{
-    font-size: 15px;
-}
-
-.nacionality-image{
-    display: flex;
-    width: 10%;
-}
-/*Fin de Jugadores*/
-
-
-/*Contact*/
-/* .h1-contact{
-    width: 350px;
-}
-
-.grid-contact-form{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-item-img{
-    width: 100%;
-} */
-
 .contenedor {
     display: grid;
     grid-template-columns: auto auto; /* Dos columnas de ancho automático */
     gap: 20px; /* Espacio entre las columnas */
-  }
-  
-  .imagen {
-    grid-column: 1 / 2; /* La imagen ocupa desde la columna 1 hasta la 2 */
-  }
-  
-  .texto {
-    grid-column: 2 / 3; /* El texto ocupa desde la columna 2 hasta la 3 */
   }
 /*Fin del Contact*/
 
