@@ -55,9 +55,16 @@ p{
     font-size: 20px;
 }
 
-.card{
+.tournaments-card .card{
     border: 0 !important;
 }
+
+.decks-container .card{
+    border: 5 !important;
+    padding: 15px;
+}
+
+
 /*Fin de torneos*/
 
 .contenedor {
@@ -66,7 +73,6 @@ p{
     gap: 20px; /* Espacio entre las columnas */
   }
 /*Fin del Contact*/
-
 
 /*Footer general*/
 .footer-mine{
