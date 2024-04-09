@@ -1,3 +1,9 @@
+.decks-container{
+  .card{
+    border: 0 !important;
+  }
+}
+
 .container-card-one {
     width: 300px;
     height: 500px;
@@ -22,17 +28,17 @@
   }
   
   .front-side-1 {
-    background-image: url(../images/decks/gardevoir.png);
+    background-image: url(/images/decks/gardevoir.webp);
     background-size: 100% 100%;
   }
   
   .front-side-2 {
-    background-image: url(../images/decks/charizard.png);
+    background-image: url(/images/decks/charizard.webp);
     background-size: 100% 100%;
   }
   
   .front-side-3 {
-    background-image: url(../images/decks/giratina.png);
+    background-image: url(/images/decks/giratina.webp);
     background-size: 100% 100%;
   }
   
