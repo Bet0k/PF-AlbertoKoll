@@ -1,0 +1,69 @@
+.container-card-one {
+    width: 300px;
+    height: 500px;
+    perspective: 800px;
+  }
+  
+  .deck-card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+  }
+  
+  .front-side-1, .front-side-2, .front-side-3, .back-side-1, .back-side-2, .back-side-3 {
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    box-shadow: 0 0 5x 2px red;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .front-side-1 {
+    background-image: url(../images/decks/gardevoir.png);
+    background-size: 100% 100%;
+  }
+  
+  .front-side-2 {
+    background-image: url(../images/decks/charizard.png);
+    background-size: 100% 100%;
+  }
+  
+  .front-side-3 {
+    background-image: url(../images/decks/giratina.png);
+    background-size: 100% 100%;
+  }
+  
+  .back-side-1, .back-side-2 {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
+  
+  .back-side-3 {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  
+    img {
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5rem;
+    }
+  }
+  
+  .container-card-one:hover > .deck-card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }

@@ -5,20 +5,12 @@
 
 main {
   min-height: 900px;
+}
+
+body {
   font-family: "Quantico" !important;
 }
 
-/* Estilos del NAV para todas las secciones */
-.nav-item {
-  font-size: 20px;
-}
-
-nav ul li a:hover {
-  color: red !important;
-}
-
-/* Fin del nav */
-/* Container para todas las secciones */
 h1 {
   padding: 30px;
   text-align: center;
@@ -38,8 +30,43 @@ p {
   font-size: 20px;
 }
 
-/* Fin del container */
-/* Home */
+.footer-mine {
+  background: #000;
+  text-align: center;
+}
+.footer-mine .row-mine {
+  padding: 10px;
+  color: white;
+  font-size: 15px;
+}
+.footer-mine .row-mine a {
+  text-decoration: none;
+  color: white;
+}
+.footer-mine .row-mine a:hover {
+  color: red;
+}
+.footer-mine .row-mine ul li {
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 20px;
+}
+.footer-mine .row-mine a i {
+  font-size: 15px;
+  margin: 0% 1%;
+}
+.footer-mine .row-mine p {
+  font-size: 10px;
+}
+
+.nav-item {
+  font-size: 20px;
+}
+
+nav ul li a:hover {
+  color: red !important;
+}
+
 .background-section {
   height: 100vh;
   background-repeat: no-repeat;
@@ -47,8 +74,6 @@ p {
   background-size: cover;
 }
 
-/* Fin del Home */
-/* Decks */
 .container-card-one {
   width: 300px;
   height: 500px;
@@ -118,8 +143,6 @@ p {
   transform: rotateY(180deg);
 }
 
-/* Fin de Decks */
-/* Torneos */
 .text-home-tournaments {
   text-align: center;
   font-size: 20px;
@@ -134,8 +157,6 @@ p {
   padding: 15px;
 }
 
-/* Fin de torneos */
-/* Jugadores */
 .row-title {
   background-color: aqua !important;
   text-align: center;
@@ -149,38 +170,5 @@ p {
   height: auto;
   width: 100px;
 }
-
-/* Fin de jugadores */
-/* Footer general */
-.footer-mine {
-  background: #000;
-  text-align: center;
-}
-.footer-mine .row-mine {
-  padding: 10px;
-  color: white;
-  font-size: 15px;
-}
-.footer-mine .row-mine a {
-  text-decoration: none;
-  color: white;
-}
-.footer-mine .row-mine a:hover {
-  color: red;
-}
-.footer-mine .row-mine ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin: 0px 20px;
-}
-.footer-mine .row-mine a i {
-  font-size: 15px;
-  margin: 0% 1%;
-}
-.footer-mine .row-mine p {
-  font-size: 10px;
-}
-
-/* Fin del Footer */
 
 /*# sourceMappingURL=main.css.map */

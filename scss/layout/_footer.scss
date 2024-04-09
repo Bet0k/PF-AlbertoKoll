@@ -1,0 +1,38 @@
+.footer-mine {
+    background: #000;
+    text-align: center;
+  
+    .row-mine {
+      padding: 10px;
+      color: white;
+      font-size: 15px;
+  
+      a {
+        text-decoration: none;
+        color: white;
+  
+        &:hover {
+          color: red;
+        }
+      }
+  
+      ul {
+        li {
+          text-decoration: none;
+          display: inline-block;
+          margin: 0px 20px;
+        }
+      }
+  
+      a {
+        i {
+          font-size: 15px;
+          margin: 0% 1%;
+        }
+      }
+  
+      p {
+        font-size: 10px;
+      }
+    }
+  }
