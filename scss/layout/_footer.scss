@@ -1,26 +1,22 @@
-.footer-mine {
+.footer{
     background: #000;
     text-align: center;
+
+    h5{
+      text-decoration: none;
+      color: white;
+    }
+
   
     .row-mine {
       padding: 10px;
-      color: white;
       font-size: 15px;
-  
       a {
         text-decoration: none;
         color: white;
   
         &:hover {
           color: red;
-        }
-      }
-  
-      ul {
-        li {
-          text-decoration: none;
-          display: inline-block;
-          margin: 0px 20px;
         }
       }
   
@@ -32,6 +28,7 @@
       }
   
       p {
+        color: white;
         font-size: 10px;
       }
     }
