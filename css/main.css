@@ -30,32 +30,31 @@ p {
   font-size: 20px;
 }
 
-.footer-mine {
+.footer {
   background: #000;
   text-align: center;
 }
-.footer-mine .row-mine {
-  padding: 10px;
+.footer h5 {
+  text-decoration: none;
   color: white;
+}
+.footer .row-mine {
+  padding: 10px;
   font-size: 15px;
 }
-.footer-mine .row-mine a {
+.footer .row-mine a {
   text-decoration: none;
   color: white;
 }
-.footer-mine .row-mine a:hover {
+.footer .row-mine a:hover {
   color: red;
 }
-.footer-mine .row-mine ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin: 0px 20px;
-}
-.footer-mine .row-mine a i {
+.footer .row-mine a i {
   font-size: 15px;
   margin: 0% 1%;
 }
-.footer-mine .row-mine p {
+.footer .row-mine p {
+  color: white;
   font-size: 10px;
 }
 
