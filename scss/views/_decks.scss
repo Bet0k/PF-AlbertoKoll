@@ -213,15 +213,7 @@
         justify-content: center;
         gap: 5rem;
       }
-      
-      .back-side-3 {
-        transform: rotateY(180deg);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5rem;
-      
+           
         img {
           transform: rotateY(180deg);
           display: flex;
@@ -240,4 +232,3 @@
       .only-media{
         opacity: 0;
       }
-  }
