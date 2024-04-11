@@ -160,7 +160,7 @@
       }
   }
 
-  @media screen and (min-width: 1024px){
+  @media screen and (min-width: 1025px){
     .decks-container{
       .card{
         border: 0 !important;
@@ -168,9 +168,9 @@
     }
     
     .container-card-one {
-      width: 300px;
-      height: 500px;
-      perspective: 800px;
+        width: 300px;
+        height: 500px;
+        perspective: 800px;
       }
       
       .deck-card {
@@ -213,7 +213,15 @@
         justify-content: center;
         gap: 5rem;
       }
-           
+      
+      .back-side-3 {
+        transform: rotateY(180deg);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+      
         img {
           transform: rotateY(180deg);
           display: flex;
@@ -232,3 +240,5 @@
       .only-media{
         opacity: 0;
       }
+  }
+  
