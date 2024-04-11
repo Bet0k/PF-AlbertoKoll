@@ -215,7 +215,7 @@ p {
     opacity: 0;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .decks-container .card {
     border: 0 !important;
   }
@@ -259,7 +259,7 @@ p {
     justify-content: center;
     gap: 5rem;
   }
-  img {
+  .back-side-3 {
     transform: rotateY(180deg);
     display: flex;
     align-items: center;
@@ -267,16 +267,22 @@ p {
     justify-content: center;
     gap: 5rem;
   }
+  .back-side-3 img {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
+  }
+  .container-card-one:hover > .deck-card {
+    cursor: pointer;
+    transform: rotateY(180deg);
+  }
+  .only-media {
+    opacity: 0;
+  }
 }
-.container-card-one:hover > .deck-card {
-  cursor: pointer;
-  transform: rotateY(180deg);
-}
-
-.only-media {
-  opacity: 0;
-}
-
 .text-home-tournaments {
   text-align: center;
   font-size: 20px;
