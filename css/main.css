@@ -34,7 +34,7 @@ p {
   background: #000;
   text-align: center;
 }
-.footer h5 {
+.footer .footer-title {
   text-decoration: none;
   color: white;
 }
@@ -73,8 +73,12 @@ nav ul li a:hover {
   background-size: cover;
 }
 
+.asd {
+  width: 400px;
+}
+
 .decks-container .card {
-  border: 1 !important;
+  border: 1px !important;
   padding: 30px;
 }
 
@@ -148,7 +152,7 @@ p {
 }
 @media screen and (min-width: 801px) and (max-width: 1024px) {
   .decks-container .card {
-    border: 0 !important;
+    border: 0px !important;
   }
   .container-card-one {
     width: 250px;
@@ -216,7 +220,7 @@ p {
 }
 @media screen and (min-width: 1025px) {
   .decks-container .card {
-    border: 0 !important;
+    border: 0px !important;
   }
   .container-card-one {
     width: 350px;
