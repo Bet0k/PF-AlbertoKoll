@@ -1,6 +1,6 @@
 .decks-container{
   .card{
-    border: 1 !important;
+    border: 1px !important;
     padding: 30px;
   }
 }
@@ -81,7 +81,7 @@
   @media screen and (min-width: 801px) and (max-width: 1024px){
     .decks-container{
       .card{
-        border: 0 !important;
+        border: 0px !important;
       }
     }
     
@@ -163,7 +163,7 @@
   @media screen and (min-width: 1025px){
     .decks-container{
       .card{
-        border: 0 !important;
+        border: 0px !important;
       }
     }
     
