@@ -117,12 +117,18 @@ const loadEvents = () => {
         });
     }
     document.getElementById('finishButton').addEventListener('click', () => {
-    const cartContents = arrayPokemon.map(pokemon => `${pokemon.description}`).join('\n');
-    alert(`El carrito contiene:\n${cartContents}`);
-    alert(`Tu monto total a pagar es de: ${totalAmount}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
-    totalAmount = 0;
-    arrayPokemon = [];
-    updateCartNumber()
+        if(totalAmount > 0){
+            const cartContents = arrayPokemon.map(pokemon => `${pokemon.description}`).join('\n');
+            alert(`El carrito contiene:\n${cartContents}`);
+            alert(`Tu monto total a pagar es de: ${totalAmount}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
+            totalAmount = 0;
+            arrayPokemon = [];
+            updateCartNumber()
+        }
+        else{
+            alert(`No añadiste cartas al carrito.\nPara finalizar la compra, por favor, selecciona al menos una carta.`);
+        }
+
 });
 };
 
