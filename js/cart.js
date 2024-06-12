@@ -102,7 +102,7 @@ const Products = [
     }
 ];
 
-//Eventos, botón de agregar al carrito y finalizar
+//Todos los eventos
 const loadEvents = () => {
     const buttons = document.querySelectorAll('.button'); 
     for (const button of buttons) {
@@ -112,7 +112,7 @@ const loadEvents = () => {
                 totalAmount += selectedProduct.price;
                 arrayPokemon.push(new Pokemon(selectedProduct.name, selectedProduct.description));
                 alert(`Agregaste al carrito: ${selectedProduct.name}\nValor: ${selectedProduct.price}$\nMonto actual: ${totalAmount}$`);
-                updateCartNumber()
+                updateCartNumber();
             }
         });
     }
@@ -123,46 +123,60 @@ const loadEvents = () => {
             alert(`Tu monto total a pagar es de: ${totalAmount}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
             totalAmount = 0;
             arrayPokemon = [];
-            updateCartNumber()
-        }
-        else{
+            updateCartNumber();
+        } else {
             alert(`No añadiste cartas al carrito.\nPara finalizar la compra, por favor, selecciona al menos una carta.`);
         }
-});
+    });
 };
 
 //Creo los elementos
-const createProducts = () => {
+const createProducts = (maxPrice) => {
+    root.innerHTML = '';
+
     Products.forEach(product => {
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML = `
-            <img src='${product.image}' alt='${product.description}' class='product-img'>
-            <h3>${product.name}</h3>
-            <h4>${product.description}</h4>
-            <h5>${product.price}$</h5>
-            <button id='${product.id}' class='button'>Agregar al carrito</button>
-        `;
-        root.appendChild(card);
+        if (!maxPrice || product.price <= maxPrice) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+                <img src='${product.image}' alt='${product.description}' class='product-img'>
+                <h3>${product.name}</h3>
+                <h4>${product.description}</h4>
+                <h5>${product.price}$</h5>
+                <button id='${product.id}' class='button'>Agregar al carrito</button>
+            `;
+            root.appendChild(card);
+        }
     });
-    
-//Botón de finalizar compra
-const finalizeButton = document.createElement('button');
-finalizeButton.id = 'finishButton';
-finalizeButton.classList.add('finalize-button');
-finalizeButton.innerText = 'Finalizar Compra';
-root.appendChild(finalizeButton);
+
+    //Botón de finalizar compra
+    const finalizeButton = document.createElement('button');
+    finalizeButton.id = 'finishButton';
+    finalizeButton.classList.add('finalize-button');
+    finalizeButton.innerText = 'Finalizar Compra';
+    root.appendChild(finalizeButton);
 
     loadEvents();
 };
 
+//Botón de filtrado
+const filterButton = document.createElement('button');
+filterButton.id = 'filterButton';
+filterButton.classList.add('filter-button');
+filterButton.innerText = 'Filtrar Precio';
+root.parentNode.insertBefore(filterButton, root);
+
+document.getElementById('filterButton').addEventListener('click', () => {
+    const priceToFilter = prompt('Ingrese un precio máximo');
+    createProducts(priceToFilter ? Number(priceToFilter) : null);
+});
+
 createProducts();
 
-
 //Actualizar el span del carrito
-const cartNumberElement = document.getElementById("cart-count")
-function updateCartNumber(){
-    let actualCartNumber = arrayPokemon.length
-    console.log(actualCartNumber)
-    cartNumberElement.innerText = actualCartNumber
+const cartNumberElement = document.getElementById("cart-count");
+function updateCartNumber() {
+    let actualCartNumber = arrayPokemon.length;
+    console.log(actualCartNumber);
+    cartNumberElement.innerText = actualCartNumber;
 }

@@ -385,9 +385,9 @@ p {
 .finalize-button {
   display: block;
   height: 50px;
-  margin: 20px auto;
+  margin: 20px;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 15px;
   background-color: black;
   color: white;
   border: none;
@@ -396,6 +396,23 @@ p {
 }
 
 .finalize-button:hover {
+  color: red;
+}
+
+.filter-button {
+  display: block;
+  height: 50px;
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
   color: red;
 }
 
