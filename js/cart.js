@@ -128,7 +128,6 @@ const loadEvents = () => {
         else{
             alert(`No añadiste cartas al carrito.\nPara finalizar la compra, por favor, selecciona al menos una carta.`);
         }
-
 });
 };
 
