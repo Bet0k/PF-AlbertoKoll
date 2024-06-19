@@ -152,11 +152,11 @@ const Products = [
     },
     {
         id: 16,
-        name: "Arbok EX",
-        price: 800,
-        description: "Kabutops Gen 151",
+        name: "Ekans",
+        price: 500,
+        description: "Ekans Gen 151",
         type: "poison",
-        image: '../images/buyCards/arbok.webp',
+        image: '../images/buyCards/ekans.webp',
         quantity: 1
     },
 ];
