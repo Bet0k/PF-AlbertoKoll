@@ -387,15 +387,22 @@ p {
   color: red;
 }
 
+@media (max-width: 600px) {
+  .cardCart {
+    width: 100%;
+    height: 100%;
+  }
+}
 @media (min-width: 600px) {
   .buyCardsSection {
     grid-template-columns: repeat(2, 1fr);
   }
   #finalizeBtn {
-    width: 15%;
+    width: 30%;
   }
-  .product-img {
-    min-width: 360px;
+  .cardCart {
+    width: 40%;
+    height: 50%;
   }
 }
 @media (min-width: 900px) {
@@ -407,23 +414,28 @@ p {
   .buyCardsSection {
     grid-template-columns: repeat(4, 1fr);
   }
+  .cardCart {
+    width: 20%;
+    height: 40%;
+  }
 }
-.card {
+.cardCart {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin: 15px;
   padding: 15px;
   text-align: center;
+  max-width: 300px;
 }
-.card h3 {
+.cardCart h3 {
   font-size: 25px;
   margin: 15px;
 }
-.card h4 {
+.cardCart h4 {
   font-size: 20px;
   margin: 5px;
 }
-.card h5 {
+.cardCart h5 {
   font-size: 15px;
   margin: 5px;
 }

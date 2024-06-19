@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cart && cart.length > 0) {
         cart.forEach((item, index) => {
             const card = document.createElement('div');
-            card.classList.add('card');
+            card.classList.add('cardCart');
             card.innerHTML = `
                 <img src='${item.image}' alt='${item.description}' class='product-img'>
                 <h3>${item.name}</h3>
