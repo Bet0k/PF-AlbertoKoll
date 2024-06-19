@@ -315,23 +315,11 @@ p {
   grid-template-columns: repeat(1, 1fr);
 }
 
-@media (min-width: 600px) {
-  .buyCardsSection {
-    grid-template-columns: repeat(2, 1fr);
-  }
+#cart-img {
+  height: 50px;
 }
-@media (min-width: 900px) {
-  .buyCardsSection {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media (min-width: 1200px) {
-  .buyCardsSection {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.cart-img {
-  height: 30px;
+#cart-img:hover {
+  cursor: pointer;
 }
 
 .buyCardsSection div {
@@ -347,16 +335,13 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
 .buyCardsSection div h3 {
   margin: 0.5em 0em;
 }
-
 .buyCardsSection div h4 {
   font-size: 0.875rem;
   margin: 0.5em 0em;
 }
-
 .buyCardsSection div .button {
   width: 100%;
   border: 1px solid #ccc;
@@ -366,7 +351,6 @@ p {
   color: white;
   cursor: pointer;
 }
-
 .buyCardsSection div .button:hover {
   color: red;
 }
@@ -382,9 +366,9 @@ p {
   box-shadow: 1.25px 1.25px 10px black;
 }
 
-.finalize-button {
+.finalize-button, .filter-button {
   display: block;
-  height: 50px;
+  height: 100%;
   margin: 20px;
   padding: 10px 20px;
   font-size: 15px;
@@ -394,26 +378,67 @@ p {
   border-radius: 5px;
   cursor: pointer;
 }
-
-.finalize-button:hover {
+.finalize-button:hover, .filter-button:hover {
   color: red;
 }
 
-.filter-button {
+@media (min-width: 600px) {
+  .buyCardsSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .buyCardsSection {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .buyCardsSection {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 15px;
+  padding: 15px;
+  text-align: center;
+}
+
+#cart-root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-cart-btn {
   display: block;
-  height: 50px;
-  margin: 20px;
-  padding: 10px 20px;
-  font-size: 15px;
+  width: 10%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 30px auto 30px;
   background-color: black;
   color: white;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
-.filter-button:hover {
+button:hover {
   color: red;
+}
+
+h4 {
+  margin: 20px;
+}
+
+.remove-btn {
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 30px auto 30px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
