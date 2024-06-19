@@ -323,7 +323,7 @@ p {
 }
 
 .buyCardsSection div {
-  margin: 15px;
+  margin: 35px;
   padding: 0.7rem;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
@@ -389,6 +389,9 @@ p {
   #finalizeBtn {
     width: 15%;
   }
+  .product-img {
+    min-width: 360px;
+  }
 }
 @media (min-width: 900px) {
   .buyCardsSection {
@@ -406,6 +409,9 @@ p {
   margin: 15px;
   padding: 15px;
   text-align: center;
+  margin: 40px;
+  margin: 35px;
+  padding: 0.7rem;
 }
 
 #cart-root {
