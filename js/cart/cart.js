@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cartRoot.appendChild(card);
         });
 
-        totalAmountElement.innerText = `Total a pagar: ${totalAmount}$`;
+        totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount}$</span>`;
+
     } else {
         cartRoot.innerText = 'No hay productos en el carrito.';
     }
