@@ -62,7 +62,7 @@ const Products = [
     },
     {
         id: 6,
-        name: "Alakazam EX Full Art",
+        name: "Alakazam EX FullArt",
         price: 3000,
         description: "Alakazam EX Full Art Gen 151",
         type: "psychic",
@@ -98,7 +98,7 @@ const Products = [
     },
     {
         id: 10,
-        name: "Snorlax Full Art",
+        name: "Snorlax FullArt",
         price: 3000,
         description: "Snorlax Full Art Gen 151",
         type: "normal",
