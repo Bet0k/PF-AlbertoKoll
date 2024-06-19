@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('card');
             card.innerHTML = `
-                <h3>${item.description}</h3>
-                <img src="${item.image}" alt="${item.description}" class="product-img">
-                <h4>Precio: ${item.price}$</h4>
+                <img src='${item.image}' alt='${item.description}' class='product-img'>
+                <h3>${item.name}</h3>
+                <h5>${item.price}$</h5>
                 <h5>Cantidad: <span class="quantity">${item.quantity}</span></h5>
                 <button class="remove-btn" data-index="${index}">Eliminar</button>
             `;

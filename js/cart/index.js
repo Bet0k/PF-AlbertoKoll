@@ -107,13 +107,58 @@ const Products = [
     },
     {
         id: 11,
-        name: "Hitmonchan",
+        name: "Kabutops",
         price: 800,
-        description: "Hitmonchan Gen 151",
+        description: "Kabutops Gen 151",
         type: "fighting",
-        image: '../images/buyCards/hitmonchan.webp',
+        image: '../images/buyCards/kabutops.webp',
         quantity: 1
-    }
+    },
+    {
+        id: 12,
+        name: "Blastoise EX",
+        price: 3500,
+        description: "Blastoise EX Gen 151",
+        type: "water",
+        image: '../images/buyCards/blastoise.webp',
+        quantity: 1
+    },
+    {
+        id: 13,
+        name: "Charizard EX",
+        price: 3500,
+        description: "Charizard EX Gen 151",
+        type: "fire",
+        image: '../images/buyCards/charizard.webp',
+        quantity: 1
+    },
+    {
+        id: 14,
+        name: "Venusaur EX",
+        price: 3500,
+        description: "Venusaur EX Gen 151",
+        type: "grass",
+        image: '../images/buyCards/venusaur.webp',
+        quantity: 1
+    },
+    {
+        id: 15,
+        name: "Mew EX",
+        price: 3250,
+        description: "Mew EX Gen 151",
+        type: "psychic",
+        image: '../images/buyCards/mew.webp',
+        quantity: 1
+    },
+    {
+        id: 16,
+        name: "Arbok EX",
+        price: 800,
+        description: "Kabutops Gen 151",
+        type: "poison",
+        image: '../images/buyCards/arbok.webp',
+        quantity: 1
+    },
 ];
 
 // Crear los productos
