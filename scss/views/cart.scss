@@ -12,9 +12,8 @@
     justify-content: center;
 }
 
-.add-cart-btn {
+#finalizeBtn {
     display: block;
-    width: 10%;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 30px auto 30px;
@@ -23,7 +22,7 @@
     cursor: pointer;
 }
 
-button:hover {
+#finalizeBtn:hover {
     color: red;
 }
 

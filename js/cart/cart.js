@@ -72,8 +72,14 @@ function removeFromCart(index, quantity) {
     window.location.reload();
 }
 
-function finalizePurchase() {
-    alert(`Tu monto total a pagar es de: ${localStorage.getItem('totalAmount')}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
-    localStorage.clear();
-    window.location.href = '../pages/buyCards.html';
+function finalizePurchase(){
+    if(localStorage.getItem('totalAmount') > 0){
+        alert(`Tu monto total a pagar es de: ${localStorage.getItem('totalAmount')}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
+        localStorage.clear();
+        window.location.href = '../pages/buyCards.html';
+    }
+    else{
+        alert("No tenés cartas seleccionadas! Por favor, seleccioná al menos una")
+    }
+
 }

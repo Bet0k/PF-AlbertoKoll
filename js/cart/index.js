@@ -140,7 +140,7 @@ const createProducts = (maxPrice) => {
 
 //Botón de agregar al carrito
 const loadEvents = () => {
-    const buttons = document.querySelectorAll('.add-cart-btn'); 
+    const buttons = document.querySelectorAll('.button'); 
     for (const button of buttons) {
         button.addEventListener('click', () => {
             const selectedProduct = Products.find(product => product.id === Number(button.id));
