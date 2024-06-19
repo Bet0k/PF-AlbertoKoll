@@ -423,7 +423,6 @@ p {
   color: white;
   cursor: pointer;
 }
-
 #finalizeBtn:hover {
   color: red;
 }
@@ -441,6 +440,9 @@ h4 {
   background-color: black;
   color: white;
   cursor: pointer;
+}
+.remove-btn:hover {
+  color: red;
 }
 
 .total-amount {
