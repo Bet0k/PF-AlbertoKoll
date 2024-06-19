@@ -386,6 +386,9 @@ p {
   .buyCardsSection {
     grid-template-columns: repeat(2, 1fr);
   }
+  #finalizeBtn {
+    width: 15%;
+  }
 }
 @media (min-width: 900px) {
   .buyCardsSection {
@@ -411,9 +414,8 @@ p {
   justify-content: center;
 }
 
-.add-cart-btn {
+#finalizeBtn {
   display: block;
-  width: 10%;
   border: 1px solid #ccc;
   padding: 10px;
   margin: 30px auto 30px;
@@ -422,7 +424,7 @@ p {
   cursor: pointer;
 }
 
-button:hover {
+#finalizeBtn:hover {
   color: red;
 }
 
@@ -439,6 +441,10 @@ h4 {
   background-color: black;
   color: white;
   cursor: pointer;
+}
+
+.total-amount {
+  font-size: 25px;
 }
 
 /*# sourceMappingURL=main.css.map */

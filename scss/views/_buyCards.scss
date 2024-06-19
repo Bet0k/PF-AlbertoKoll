@@ -82,6 +82,9 @@
     .buyCardsSection {
       grid-template-columns: repeat(2, 1fr);
     }
+    #finalizeBtn{
+      width: 15%;
+    }
   }
   
   @media (min-width: 900px) {
