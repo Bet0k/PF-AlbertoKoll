@@ -173,7 +173,7 @@ const createProducts = (maxPrice) => {
                 <img src='${product.image}' alt='${product.description}' class='product-img'>
                 <h3>${product.name}</h3>
                 <h4>${product.description}</h4>
-                <h5>${product.price}$</h5>
+                <h5>Precio: ${product.price}$</h5>
                 <button id='${product.id}' class='button'>Agregar al carrito</button>
             `;
             root.appendChild(card);

@@ -336,11 +336,16 @@ p {
   align-items: center;
 }
 .buyCardsSection div h3 {
-  margin: 0.5em 0em;
+  font-size: 25px;
+  margin: 15px;
 }
 .buyCardsSection div h4 {
-  font-size: 0.875rem;
-  margin: 0.5em 0em;
+  font-size: 20px;
+  margin: 5px;
+}
+.buyCardsSection div h5 {
+  font-size: 15px;
+  margin: 5px;
 }
 .buyCardsSection div .button {
   width: 100%;
@@ -412,6 +417,18 @@ p {
   margin: 40px;
   margin: 35px;
   padding: 0.7rem;
+}
+.card h3 {
+  font-size: 25px;
+  margin: 15px;
+}
+.card h4 {
+  font-size: 20px;
+  margin: 5px;
+}
+.card h5 {
+  font-size: 15px;
+  margin: 5px;
 }
 
 #cart-root {

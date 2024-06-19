@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <img src='${item.image}' alt='${item.description}' class='product-img'>
                 <h3>${item.name}</h3>
-                <h5>${item.price}$</h5>
+                <h4>Precio: ${item.price}$</h4>
                 <h5>Cantidad: <span class="quantity">${item.quantity}</span></h5>
                 <button class="remove-btn" data-index="${index}">Eliminar</button>
             `;
