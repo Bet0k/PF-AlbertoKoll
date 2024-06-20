@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = event.target.dataset.index;
             const item = cart[index];
             let quantityToRemove = prompt(`Tienes ${item.quantity} unidades de este producto. ¿Cuántas deseas eliminar?`, '1');
-            quantityToRemove = parseInt(quantityToRemove, 10);
+            quantityToRemove = parseFloat(quantityToRemove, 10);
 
             // Validar la cantidad ingresada por el usuario
-            if (isNaN(quantityToRemove) || quantityToRemove <= 0) {
+            if (isNaN(quantityToRemove) || quantityToRemove <= 0 || !Number.isInteger(quantityToRemove)) {
                 alert('Por favor, ingresa un número válido.');
                 return;
             }
@@ -58,7 +58,7 @@ function removeFromCart(index, quantity) {
 
     const item = cart[index];
     const itemTotalPrice = item.price * quantity;
-    if (quantity = item.quantity) {
+    if (quantity == item.quantity) {
         cart.splice(index, 1);
     } else {
         item.quantity -= quantity;
