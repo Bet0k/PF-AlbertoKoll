@@ -201,6 +201,7 @@ const loadEvents = () => {
                     alert(`Agregaste al carrito: ${selectedProduct.name}\nValor: ${selectedProduct.price}$\nMonto actual: ${totalAmount}$`);
                 }
                 localStorage.setItem('cart', JSON.stringify(arrayPokemon));
+                localStorage.setItem('totalAmount', totalAmount);
                 updateCartNumber();
             }
         });
