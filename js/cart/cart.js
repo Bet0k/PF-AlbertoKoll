@@ -33,24 +33,38 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = event.target.dataset.index;
             const item = cart[index];
             let quantityToRemove = prompt(`Tienes ${item.quantity} unidades de este producto. ¿Cuántas deseas eliminar?`, '1');
-            quantityToRemove = parseFloat(quantityToRemove, 10);
 
-            // Validar la cantidad ingresada por el usuario
-            if (isNaN(quantityToRemove) || quantityToRemove <= 0 || !Number.isInteger(quantityToRemove)) {
-                alert('Por favor, ingresa un número válido.');
+            //La idea es: validar que el número sea entero, nada de 1.5, 1-5, etc.
+            //Luego lo pasa a INT base 10
+
+            if (!isValidInteger(quantityToRemove)) {
+                alert('Por favor, ingresa un número entero válido.');
                 return;
             }
-            else if (quantityToRemove > item.quantity) {
-                alert(`No posees esa cantidad de este producto.\nPor favor ingresá un número igual o menor a ${item.quantity}`);
+
+            quantityToRemove = parseInt(quantityToRemove, 10);
+
+            if (quantityToRemove > item.quantity) {
+                alert(`No posees esa cantidad de este producto.\nPor favor ingresa un número igual o menor a ${item.quantity}.`);
                 return;
             }
-            else{
-                removeFromCart(index, quantityToRemove);
+            else if(quantityToRemove == 0){
+                alert("El número que ingresas para eliminar una cantidad de cartas debe ser mayor a 0.")
             }
-
+            removeFromCart(index, quantityToRemove);
         });
     });
 });
+
+function isValidInteger(input) {
+    //^\d+$: verifica que desde el inicio (^) hasta el final ($) de la cadena solo haya dígitos (\d) y al menos uno (+).
+    // ^ indica el comienzo de la cadena.
+    // \d coincide con cualquier dígito (equivalente a [0-9]).
+    // + indica que el dígito puede aparecer una o más veces.
+    // $ indica el final de la cadena.
+    return /^\d+$/.test(input);
+
+}
 
 function removeFromCart(index, quantity) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -58,11 +72,13 @@ function removeFromCart(index, quantity) {
 
     const item = cart[index];
     const itemTotalPrice = item.price * quantity;
-    if (quantity == item.quantity) {
+    
+    if (quantity >= item.quantity) {
         cart.splice(index, 1);
     } else {
         item.quantity -= quantity;
     }
+
     // Actualizar el totalAmount
     totalAmount -= itemTotalPrice;
 
@@ -70,7 +86,7 @@ function removeFromCart(index, quantity) {
     localStorage.setItem('cart', JSON.stringify(cart));
     localStorage.setItem('totalAmount', totalAmount.toFixed(2));
 
-    // Recargar la página para actualizar la vista
+    // Recargar la página para actualizar la vista (esto podría mejorarse con una actualización dinámica)
     window.location.reload();
 }
 
