@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalAmountElement = document.getElementById('total-amount');
 
     // Traigo el carrito y el total del localStorage
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    let totalAmount = parseFloat(localStorage.getItem('totalAmount'));
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
     
-    if (cart && cart.length > 0) {
+    if (cart.length > 0) {
         cart.forEach((item, index) => {
             const card = document.createElement('div');
             card.classList.add('cardCart');
@@ -30,57 +30,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const removeButtons = document.querySelectorAll('.remove-btn');
     removeButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            //event.target --> elemento que disparó el evento
-            //dateset --> accede a los atributos de data
-            //index --> posición del producto en el carrito
             const index = event.target.dataset.index;
             const item = cart[index];
-            if (item.quantity > 1) {
-                const quantityToRemove = prompt(`Tienes ${item.quantity} unidades de este producto. ¿Cuántas deseas eliminar?`, '1');
-                if (quantityToRemove !== null) {
-                    removeFromCart(index, parseInt(quantityToRemove));
-                }
-            } else {
-                removeFromCart(index, 1);
+            let quantityToRemove = prompt(`Tienes ${item.quantity} unidades de este producto. ¿Cuántas deseas eliminar?`, '1');
+            quantityToRemove = parseInt(quantityToRemove, 10);
+
+            // Validar la cantidad ingresada por el usuario
+            if (isNaN(quantityToRemove) || quantityToRemove <= 0) {
+                alert('Por favor, ingresa un número válido.');
+                return;
             }
+            else if (quantityToRemove > item.quantity) {
+                alert(`No posees esa cantidad de este producto.\nPor favor ingresá un número igual o menor a ${item.quantity}`);
+                return;
+            }
+            else{
+                removeFromCart(index, quantityToRemove);
+            }
+
         });
     });
 });
 
 function removeFromCart(index, quantity) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    let totalAmount = parseFloat(localStorage.getItem('totalAmount'));
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
 
     const item = cart[index];
     const itemTotalPrice = item.price * quantity;
-
-    if (quantity >= item.quantity) {
-        // Eliminar el item del carrito
+    if (quantity = item.quantity) {
         cart.splice(index, 1);
     } else {
-        // Actualizar la cantidad del item
         item.quantity -= quantity;
     }
-
-//Actualizar el totalAmount
+    // Actualizar el totalAmount
     totalAmount -= itemTotalPrice;
 
-//Guardar cambios en localStorage
+    // Guardar cambios en localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('totalAmount', totalAmount.toFixed(2)); //Lo formatea en 2 si o si
+    localStorage.setItem('totalAmount', totalAmount.toFixed(2));
 
-// Recargar la página para actualizar la vista
+    // Recargar la página para actualizar la vista
     window.location.reload();
 }
 
-function finalizePurchase(){
-    if(localStorage.getItem('totalAmount') > 0){
-        alert(`Tu monto total a pagar es de: ${localStorage.getItem('totalAmount')}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
+function finalizePurchase() {
+    let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
+
+    if (totalAmount > 0) {
+        alert(`Tu monto total a pagar es de: ${totalAmount}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
         localStorage.clear();
         window.location.href = '../pages/buyCards.html';
+    } else {
+        alert("No tenés cartas seleccionadas! Por favor, seleccioná al menos una");
     }
-    else{
-        alert("No tenés cartas seleccionadas! Por favor, seleccioná al menos una")
-    }
-
 }
