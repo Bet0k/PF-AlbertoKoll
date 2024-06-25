@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .cardCart {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -42,18 +43,33 @@ h4 {
   margin: 20px;
 }
 
-.remove-btn {
-  display: block;
-  width: 100%;
+.quantity-btn {
+  display: inline-block;
+  width: 30px; /* Tamaño del botón */
+  height: 30px; /* Altura del botón */
   border: 1px solid #ccc;
-  padding: 10px;
-  margin: 30px auto 30px;
+  padding: 5px; /* Ajusta el padding para centrar el texto */
+  margin: 0 5px; /* Espacio entre el botón y la cantidad */
   background-color: black;
   color: white;
   cursor: pointer;
+  text-align: center; /* Centra el texto dentro del botón */
+  line-height: 20px; /* Ajusta la altura de línea para centrar verticalmente el texto */
 }
-.remove-btn:hover {
+
+.quantity-btn:hover {
   color: red;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity {
+  margin: 10px;
+  font-size: 20px;
 }
 
 .total-amount {
