@@ -14,8 +14,7 @@ class Pokemon {
 }
 
 // Productos en stock
-const Products = [
-    {
+const Products = [{
         id: 1,
         name: "Pikachu",
         price: 950,
@@ -185,7 +184,7 @@ const createProducts = (maxPrice) => {
 
 //Botón de agregar al carrito
 const loadEvents = () => {
-    const buttons = document.querySelectorAll('.button'); 
+    const buttons = document.querySelectorAll('.button');
     for (const button of buttons) {
         button.addEventListener('click', () => {
             const selectedProduct = Products.find(product => product.id === Number(button.id));
@@ -221,10 +220,10 @@ document.getElementById('filterButton').addEventListener('click', () => {
 });
 
 //Botón de finalizar compra desde la imagen
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const finalizeButton = document.getElementById("cart-img");
     finalizeButton.addEventListener('click', () => {
-        if(totalAmount > 0){
+        if (totalAmount > 0) {
             localStorage.setItem('totalAmount', totalAmount);
             window.location.href = '../pages/cart.html';
         } else {
@@ -236,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Actualizar el span del carrito
 const cartNumberElement = document.getElementById("cart-count");
+
 function updateCartNumber() {
     let actualCartNumber = arrayPokemon.reduce((total, pokemon) => total + pokemon.quantity, 0);
     console.log(actualCartNumber);

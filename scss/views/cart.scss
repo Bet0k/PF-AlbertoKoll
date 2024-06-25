@@ -29,7 +29,7 @@
 }
 
 
-#finalizeBtn {
+#finalizeBtn{
     display: block;
     border: 1px solid #ccc;
     padding: 10px;
@@ -47,21 +47,41 @@ h4{
     margin: 20px;
 }
 
-.remove-btn{
-    display: block;
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 30px auto 30px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-
-    &:hover{
-        color:red;
-    }
-}
-
 .total-amount {
     font-size: 25px;
 }
+
+.quantity-btn {
+    display: inline-block;
+    width: 30px;
+  
+    height: 30px;
+  
+    border: 1px solid #ccc;
+    padding: 5px;
+  
+    margin: 0 5px;
+  
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+  
+    line-height: 20px;
+  
+    &:hover {
+      color: red;
+    }
+  }
+  
+  .quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .quantity {
+    margin: 10px;
+    font-size: 20px;
+  }
+  
