@@ -31,12 +31,14 @@
 
 #finalizeBtn{
     display: block;
+    width: 200px; /* Ancho definido para el botón */
     border: 1px solid #ccc;
     padding: 10px;
-    margin: 30px auto 30px;
+    margin: 40px auto 50px; /* Aumentar el margen inferior */
     background-color: black;
     color: white;
     cursor: pointer;
+    text-align: center; /* Asegura que el texto esté centrado */
 
     &:hover {
         color: red;
