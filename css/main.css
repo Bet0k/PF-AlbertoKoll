@@ -449,12 +449,14 @@ p {
 
 #finalizeBtn {
   display: block;
+  width: 200px; /* Ancho definido para el botón */
   border: 1px solid #ccc;
   padding: 10px;
-  margin: 30px auto 30px;
+  margin: 40px auto 50px; /* Aumentar el margen inferior */
   background-color: black;
   color: white;
   cursor: pointer;
+  text-align: center; /* Asegura que el texto esté centrado */
 }
 #finalizeBtn:hover {
   color: red;
@@ -464,20 +466,23 @@ h4 {
   margin: 20px;
 }
 
+.total-amount {
+  font-size: 25px;
+}
+
 .quantity-btn {
   display: inline-block;
-  width: 30px; /* Tamaño del botón */
-  height: 30px; /* Altura del botón */
+  width: 30px;
+  height: 30px;
   border: 1px solid #ccc;
-  padding: 5px; /* Ajusta el padding para centrar el texto */
-  margin: 0 5px; /* Espacio entre el botón y la cantidad */
+  padding: 5px;
+  margin: 0 5px;
   background-color: black;
   color: white;
   cursor: pointer;
-  text-align: center; /* Centra el texto dentro del botón */
-  line-height: 20px; /* Ajusta la altura de línea para centrar verticalmente el texto */
+  text-align: center;
+  line-height: 20px;
 }
-
 .quantity-btn:hover {
   color: red;
 }
@@ -491,10 +496,6 @@ h4 {
 .quantity {
   margin: 10px;
   font-size: 20px;
-}
-
-.total-amount {
-  font-size: 25px;
 }
 
 /*# sourceMappingURL=main.css.map */

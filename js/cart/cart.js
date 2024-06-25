@@ -56,6 +56,7 @@ function updateQuantity(index, action) {
         } else {
             totalAmount -= item.price;
             cart.splice(index, 1);
+            window.location.reload();
         }
     }
 
