@@ -28,6 +28,8 @@
 
 #finalizeBtn {
   display: block;
+  border: none;
+  border-radius: 5px;
   width: 200px; /* Ancho definido para el botón */
   border: 1px solid #ccc;
   padding: 10px;
@@ -75,6 +77,13 @@ h4 {
 .quantity {
   margin: 10px;
   font-size: 20px;
+}
+
+#confirmPurchase {
+  background-color: black;
+}
+#confirmPurchase:hover {
+  color: red;
 }
 
 /*# sourceMappingURL=cart.css.map */

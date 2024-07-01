@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartRoot.appendChild(card);
         });
 
-        totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount}$</span>`;
+        totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount.toFixed(2)}$</span>`;
     } else {
         cartRoot.innerText = 'No hay productos en el carrito.';
     }
@@ -56,11 +56,10 @@ function updateQuantity(index, action) {
         } else {
             totalAmount -= item.price;
             cart.splice(index, 1);
-            window.location.reload();
+            window.location.reload(); // Esto puede ser mejorado para evitar la recarga
         }
     }
 
-    // Guardar cambios en localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
     localStorage.setItem('totalAmount', totalAmount.toFixed(2));
 
@@ -97,7 +96,7 @@ function updateCartView() {
             cartRoot.appendChild(card);
         });
 
-        totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount}$</span>`;
+        totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount.toFixed(2)}$</span>`;
 
         // Re-agregar eventos a los botones de cambiar cantidad
         const quantityButtons = document.querySelectorAll('.quantity-btn');
@@ -113,14 +112,35 @@ function updateCartView() {
     }
 }
 
+document.getElementById('purchaseForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
+
+    if (totalAmount > 0) {
+        const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+        const finalModal = new bootstrap.Modal(document.getElementById('purchaseConfirmationModal'));
+        paymentModal.hide();
+        finalModal.show();
+        
+        document.getElementById('exitBuy').onclick = function() {
+            localStorage.clear();
+            window.location.href = '../pages/buyCards.html';
+        };
+    } else {
+        const noCardsModal = new bootstrap.Modal(document.getElementById('noCardsModal'));
+        noCardsModal.show();
+    }
+});
+
 function finalizePurchase() {
     let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
 
     if (totalAmount > 0) {
-        alert(`Tu monto total a pagar es de: ${totalAmount}$ 💸\n\nLos métodos de pago son:\n💳  Tarjeta de crédito / débito\n💵  Efectivo en locales\n🏦  Transferencia Bancaria\n\nLuego coordinaremos el envío! 🚚✈️\n¡Que las disfrutes! ❤️`);
-        localStorage.clear();
-        window.location.href = '../pages/buyCards.html';
+        const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+        paymentModal.show();
     } else {
-        alert("No tenés cartas seleccionadas! Por favor, seleccioná al menos una");
+        const noCardsModal = new bootstrap.Modal(document.getElementById('noCardsModal'));
+        noCardsModal.show();
     }
 }
