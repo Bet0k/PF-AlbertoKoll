@@ -182,7 +182,15 @@ const createProducts = (maxPrice) => {
     loadEvents();
 };
 
-//Botón de agregar al carrito
+// Mostrar modal
+const showModal = (modalId, message) => {
+    const modalBody = document.querySelector(`${modalId} .modal-body`);
+    modalBody.innerHTML = message;
+    const modal = new bootstrap.Modal(document.querySelector(modalId));
+    modal.show();
+};
+
+// Botón de agregar al carrito
 const loadEvents = () => {
     const buttons = document.querySelectorAll('.button');
     for (const button of buttons) {
@@ -193,33 +201,57 @@ const loadEvents = () => {
                 if (!existingPokemon) {
                     totalAmount += selectedProduct.price;
                     arrayPokemon.push(new Pokemon(selectedProduct.name, selectedProduct.description, selectedProduct.image, selectedProduct.price, selectedProduct.quantity));
-                    alert(`Agregaste al carrito: ${selectedProduct.name}\nValor: ${selectedProduct.price}$\nMonto actual: ${totalAmount}$`);
                 } else {
                     totalAmount += selectedProduct.price;
                     existingPokemon.quantity += 1;
-                    alert(`Agregaste al carrito: ${selectedProduct.name}\nValor: ${selectedProduct.price}$\nMonto actual: ${totalAmount}$`);
                 }
                 localStorage.setItem('cart', JSON.stringify(arrayPokemon));
                 localStorage.setItem('totalAmount', totalAmount);
                 updateCartNumber();
+                showModal('#addToCartModal', `
+                    <div class="modal-content-wrapper">
+                        <div>
+                            ${selectedProduct.name}<br>
+                            ${selectedProduct.price}$<br><br>
+                            Monto total actual: ${totalAmount}$
+                        </div>
+                        <img src='${selectedProduct.image}' alt='${selectedProduct.description}' class='product-thumbnail'>
+                    </div>
+                `);
             }
         });
     }
 };
 
-//Botón de filtrado
+// Botón de filtrado
 const filterButton = document.createElement('button');
 filterButton.id = 'filterButton';
 filterButton.classList.add('filter-button');
 filterButton.innerText = 'Filtrar Precio';
 root.parentNode.insertBefore(filterButton, root);
 
-document.getElementById('filterButton').addEventListener('click', () => {
-    const priceToFilter = prompt('Ingrese un precio máximo');
-    createProducts(priceToFilter ? Number(priceToFilter) : null);
+filterButton.addEventListener('click', () => {
+    const filterPriceModal = new bootstrap.Modal(document.getElementById('filterPriceModal'));
+    filterPriceModal.show();
 });
 
-//Botón de finalizar compra desde la imagen
+document.getElementById('applyFilter').addEventListener('click', () => {
+    const maxPrice = document.getElementById('maxPrice').value;
+    createProducts(maxPrice ? Number(maxPrice) : null);
+    const filterPriceModal = bootstrap.Modal.getInstance(document.getElementById('filterPriceModal'));
+    filterPriceModal.hide();
+});
+
+document.getElementById('deleteFilter').addEventListener('click', () =>{
+    const maxPrice = 0
+    createProducts(maxPrice ? Number(maxPrice) : null);
+    const filterPriceModal = bootstrap.Modal.getInstance(document.getElementById('filterPriceModal'));
+    filterPriceModal.hide();
+})
+
+
+
+// Botón de finalizar compra desde la imagen
 document.addEventListener('DOMContentLoaded', function() {
     const finalizeButton = document.getElementById("cart-img");
     finalizeButton.addEventListener('click', () => {
@@ -227,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('totalAmount', totalAmount);
             window.location.href = '../pages/cart.html';
         } else {
-            alert(`No añadiste cartas al carrito.\nPara finalizar la compra, por favor, selecciona al menos una carta.`);
+            showModal('#emptyCartModal', `Para pasar a la finalización de la compra, por favor, añadí al menos una carta.`);
             createProducts();
         }
     });
@@ -238,10 +270,9 @@ const cartNumberElement = document.getElementById("cart-count");
 
 function updateCartNumber() {
     let actualCartNumber = arrayPokemon.reduce((total, pokemon) => total + pokemon.quantity, 0);
-    console.log(actualCartNumber);
     cartNumberElement.innerText = actualCartNumber;
 }
 
-//Llamo a la función para crear los productos
+// Llamo a la función para crear los productos
 createProducts();
 updateCartNumber();
