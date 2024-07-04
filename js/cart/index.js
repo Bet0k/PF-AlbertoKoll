@@ -29,7 +29,6 @@ const getCardsFromAPI = async (query = '', pageSize = 12) => {
 		} else {
 			return data.data;
 		}
-
 	} catch (error) {
 		console.error('Error fetching data from API', error);
 		return [];
