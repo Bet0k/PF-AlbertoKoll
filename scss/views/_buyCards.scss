@@ -68,7 +68,7 @@
     box-shadow: 1.25px 1.25px 10px black;
   }
   
-  .finalize-button, .filter-button {
+  .finalize-button, .search-button{
     display: block;
     height: 100%;
     margin: 20px;
@@ -125,7 +125,49 @@
     color: red;
   }
 }
-  
+
+.search-cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  input {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+
+    &:hover{
+      color: red;
+    }
+  }
+}
+
+
+.cart-container{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
 
   @media (max-width: 600px) {
     .cardCart {
@@ -161,4 +203,3 @@
       height: 40%;
     }
   }
-  

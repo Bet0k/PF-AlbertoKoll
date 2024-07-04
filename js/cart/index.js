@@ -13,173 +13,36 @@ class Pokemon {
     }
 }
 
-// Productos en stock
-const Products = [{
-        id: 1,
-        name: "Pikachu",
-        price: 950,
-        description: "Pikachu Gen 151",
-        type: "electric",
-        image: '../images/buyCards/pikachu.webp',
-        quantity: 1
-    },
-    {
-        id: 2,
-        name: "Charmander",
-        price: 950,
-        description: "Charmander Gen 151",
-        type: "fire",
-        image: '../images/buyCards/charmander.webp',
-        quantity: 1
-    },
-    {
-        id: 3,
-        name: "Squirtle",
-        price: 950,
-        description: "Squirtle Gen 151",
-        type: "water",
-        image: '../images/buyCards/squirtle.webp',
-        quantity: 1
-    },
-    {
-        id: 4,
-        name: "Bulbasaur",
-        price: 950,
-        description: "Bulbasaur Gen 151",
-        type: "grass",
-        image: '../images/buyCards/bulbasaur.webp',
-        quantity: 1
-    },
-    {
-        id: 5,
-        name: "Eevee",
-        price: 950,
-        description: "Eevee Gen 151",
-        type: "normal",
-        image: '../images/buyCards/eevee.webp',
-        quantity: 1
-    },
-    {
-        id: 6,
-        name: "Alakazam EX FullArt",
-        price: 3000,
-        description: "Alakazam EX Full Art Gen 151",
-        type: "psychic",
-        image: '../images/buyCards/alakazam-fullart.webp',
-        quantity: 1
-    },
-    {
-        id: 7,
-        name: "Mewtwo",
-        price: 1050,
-        description: "Mewtwo Gen 151",
-        type: "psychic",
-        image: '../images/buyCards/mewtwo.webp',
-        quantity: 1
-    },
-    {
-        id: 8,
-        name: "Vaporeon",
-        price: 950,
-        description: "Vaporeon Gen 151",
-        type: "water",
-        image: '../images/buyCards/vaporeon.webp',
-        quantity: 1
-    },
-    {
-        id: 9,
-        name: "Snorlax",
-        price: 950,
-        description: "Snorlax Gen 151",
-        type: "normal",
-        image: '../images/buyCards/snorlax.webp',
-        quantity: 1
-    },
-    {
-        id: 10,
-        name: "Snorlax FullArt",
-        price: 3000,
-        description: "Snorlax Full Art Gen 151",
-        type: "normal",
-        image: '../images/buyCards/snorlax-fullart.webp',
-        quantity: 1
-    },
-    {
-        id: 11,
-        name: "Kabutops",
-        price: 800,
-        description: "Kabutops Gen 151",
-        type: "fighting",
-        image: '../images/buyCards/kabutops.webp',
-        quantity: 1
-    },
-    {
-        id: 12,
-        name: "Blastoise EX",
-        price: 3500,
-        description: "Blastoise EX Gen 151",
-        type: "water",
-        image: '../images/buyCards/blastoise.webp',
-        quantity: 1
-    },
-    {
-        id: 13,
-        name: "Charizard EX",
-        price: 3500,
-        description: "Charizard EX Gen 151",
-        type: "fire",
-        image: '../images/buyCards/charizard.webp',
-        quantity: 1
-    },
-    {
-        id: 14,
-        name: "Venusaur EX",
-        price: 3500,
-        description: "Venusaur EX Gen 151",
-        type: "grass",
-        image: '../images/buyCards/venusaur.webp',
-        quantity: 1
-    },
-    {
-        id: 15,
-        name: "Mew EX",
-        price: 3250,
-        description: "Mew EX Gen 151",
-        type: "psychic",
-        image: '../images/buyCards/mew.webp',
-        quantity: 1
-    },
-    {
-        id: 16,
-        name: "Ekans",
-        price: 500,
-        description: "Ekans Gen 151",
-        type: "poison",
-        image: '../images/buyCards/ekans.webp',
-        quantity: 1
-    },
-];
+// Función para obtener cartas desde la API
+const getCardsFromAPI = async (query = '', pageSize = 4) => {
+    try {
+        const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=${pageSize}`);
+        const data = await response.json();
+        return data.data;
+    } catch (error) {
+        console.error('Error fetching data from API', error);
+        return [];
+    }
+};
 
-// Crear los productos
-const createProducts = (maxPrice) => {
+// Crear los productos desde la API
+const createProductsFromAPI = async (query = '', pageSize = 4) => {
     root.innerHTML = '';
-
-    Products.forEach(product => {
-        if (!maxPrice || product.price <= maxPrice) {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.innerHTML = `
-                <img src='${product.image}' alt='${product.description}' class='product-img'>
-                <h3>${product.name}</h3>
-                <h4>${product.description}</h4>
-                <h5>Precio: ${product.price}$</h5>
-                <button id='${product.id}' class='button'>Agregar al carrito</button>
-            `;
-            root.appendChild(card);
-        }
+    const cards = await getCardsFromAPI(query, pageSize);
+    cards.forEach(card => {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card');
+        cardElement.innerHTML = `
+            <img src='${card.images.small}' alt='${card.name}' class='product-img'>
+            <h3>${card.name}</h3>
+            <h4>${card.set.name}</h4>
+            <h5>Precio: ${card.cardmarket ? card.cardmarket.prices.averageSellPrice : 'N/A'}$</h5>
+            <button id='${card.id}' class='button'>Agregar al carrito</button>
+        `;
+        root.appendChild(cardElement);
     });
 
-    loadEvents();
+    loadEvents(cards);
 };
 
 // Mostrar modal
@@ -191,31 +54,32 @@ const showModal = (modalId, message) => {
 };
 
 // Botón de agregar al carrito
-const loadEvents = () => {
+const loadEvents = (cards) => {
     const buttons = document.querySelectorAll('.button');
     for (const button of buttons) {
         button.addEventListener('click', () => {
-            const selectedProduct = Products.find(product => product.id === Number(button.id));
-            if (selectedProduct) {
-                const existingPokemon = arrayPokemon.find(pokemon => pokemon.name === selectedProduct.name);
+            const selectedCard = cards.find(card => card.id === button.id);
+            if (selectedCard) {
+                const price = selectedCard.cardmarket ? selectedCard.cardmarket.prices.averageSellPrice : 0;
+                const existingPokemon = arrayPokemon.find(pokemon => pokemon.name === selectedCard.name);
                 if (!existingPokemon) {
-                    totalAmount += selectedProduct.price;
-                    arrayPokemon.push(new Pokemon(selectedProduct.name, selectedProduct.description, selectedProduct.image, selectedProduct.price, selectedProduct.quantity));
+                    totalAmount += price;
+                    arrayPokemon.push(new Pokemon(selectedCard.name, selectedCard.set.name, selectedCard.images.small, price, 1));
                 } else {
-                    totalAmount += selectedProduct.price;
+                    totalAmount += price;
                     existingPokemon.quantity += 1;
                 }
                 localStorage.setItem('cart', JSON.stringify(arrayPokemon));
-                localStorage.setItem('totalAmount', totalAmount);
+                localStorage.setItem('totalAmount', totalAmount.toFixed(2));
                 updateCartNumber();
                 showModal('#addToCartModal', `
                     <div class="modal-content-wrapper">
                         <div>
-                            ${selectedProduct.name}<br>
-                            ${selectedProduct.price}$<br><br>
-                            Monto total actual: ${totalAmount}$
+                            ${selectedCard.name}<br>
+                            ${price}$<br><br>
+                            Monto total actual: ${totalAmount.toFixed(2)}$
                         </div>
-                        <img src='${selectedProduct.image}' alt='${selectedProduct.description}' class='product-thumbnail'>
+                        <img src='${selectedCard.images.small}' alt='${selectedCard.name}' class='product-thumbnail'>
                     </div>
                 `);
             }
@@ -223,44 +87,26 @@ const loadEvents = () => {
     }
 };
 
-// Botón de filtrado
-const filterButton = document.createElement('button');
-filterButton.id = 'filterButton';
-filterButton.classList.add('filter-button');
-filterButton.innerText = 'Filtrar Precio';
-root.parentNode.insertBefore(filterButton, root);
-
-filterButton.addEventListener('click', () => {
-    const filterPriceModal = new bootstrap.Modal(document.getElementById('filterPriceModal'));
-    filterPriceModal.show();
+// Evento de búsqueda
+document.getElementById('searchButton').addEventListener('click', () => {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+        createProductsFromAPI(`name:${query}`, 30);
+    } else {
+        createProductsFromAPI();
+    }
 });
-
-document.getElementById('applyFilter').addEventListener('click', () => {
-    const maxPrice = document.getElementById('maxPrice').value;
-    createProducts(maxPrice ? Number(maxPrice) : null);
-    const filterPriceModal = bootstrap.Modal.getInstance(document.getElementById('filterPriceModal'));
-    filterPriceModal.hide();
-});
-
-document.getElementById('deleteFilter').addEventListener('click', () =>{
-    const maxPrice = 0
-    createProducts(maxPrice ? Number(maxPrice) : null);
-    const filterPriceModal = bootstrap.Modal.getInstance(document.getElementById('filterPriceModal'));
-    filterPriceModal.hide();
-})
-
-
 
 // Botón de finalizar compra desde la imagen
 document.addEventListener('DOMContentLoaded', function() {
     const finalizeButton = document.getElementById("cart-img");
     finalizeButton.addEventListener('click', () => {
         if (totalAmount > 0) {
-            localStorage.setItem('totalAmount', totalAmount);
+            localStorage.setItem('totalAmount', totalAmount.toFixed(2));
             window.location.href = '../pages/cart.html';
         } else {
             showModal('#emptyCartModal', `Para pasar a la finalización de la compra, por favor, añadí al menos una carta.`);
-            createProducts();
+            createProductsFromAPI();
         }
     });
 });
@@ -274,5 +120,5 @@ function updateCartNumber() {
 }
 
 // Llamo a la función para crear los productos
-createProducts();
+createProductsFromAPI();
 updateCartNumber();

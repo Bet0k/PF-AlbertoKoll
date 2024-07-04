@@ -56,12 +56,12 @@ function updateQuantity(index, action) {
         } else {
             totalAmount -= item.price;
             cart.splice(index, 1);
-            window.location.reload(); // Esto puede ser mejorado para evitar la recarga
+            window.location.reload();
         }
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    localStorage.setItem('totalAmount', totalAmount.toFixed(2));
+    localStorage.setItem('totalAmount', totalAmount);
 
     // Actualizar la vista sin recargar la página
     updateCartView();
@@ -122,7 +122,7 @@ document.getElementById('purchaseForm').addEventListener('submit', function(even
         const finalModal = new bootstrap.Modal(document.getElementById('purchaseConfirmationModal'));
         paymentModal.hide();
         finalModal.show();
-        
+
         document.getElementById('exitBuy').onclick = function() {
             localStorage.clear();
             window.location.href = '../pages/buyCards.html';
