@@ -24,11 +24,11 @@ const getCardsFromAPI = async (query = '', pageSize = 12) => {
                     <p>No pudimos encontrar cartas con tu búsqueda. Por favor intentá nuevamente con otra carta</p>
                 </div>
             `);
+			document.querySelector('#searchInput').value = '';
 			createProductsFromAPI()
 		} else {
 			return data.data;
 		}
-
 	} catch (error) {
 		console.error('Error fetching data from API', error);
 		return [];
