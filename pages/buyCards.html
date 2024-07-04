@@ -48,11 +48,17 @@
       <main>
          <h1>Consigue tus cartas y únete a la diversión!</h1>
          <p>Seleccioná las cartas que más te gusten, luego presioná el carrito para finalizar la compra!</p>
-         <ul>
-            <img id="cart-img" src="../images/buyCards/shopping-cart.webp" alt="Carrito de compras"><span id="cart-count">0</span>
-         </ul>
+         <div class="search-cart-container">
+            <div class="search-container">
+               <input type="text" id="searchInput" placeholder="Buscar carta por nombre...">
+               <button id="searchButton">Buscar</button>
+            </div>
+            <div class="cart-container">
+               <img id="cart-img" src="../images/buyCards/shopping-cart.webp" alt="Carrito de compras"><span id="cart-count">0</span>
+            </div>
+         </div>
          <div id="root" class="buyCardsSection"></div>
-         <!-- Modal para agregar productos al carrito -->
+         <!-- Modal de añadir al carrito -->
          <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                <div class="modal-content">
@@ -68,7 +74,7 @@
                </div>
             </div>
          </div>
-         <!-- Modal para error de carrito vacío -->
+         <!-- Modal de carrito vacío -->
          <div class="modal fade" id="emptyCartModal" tabindex="-1" aria-labelledby="emptyCartModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                <div class="modal-content">
@@ -81,25 +87,6 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary btn-default" data-bs-dismiss="modal">Cerrar</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Modal para filtrar precio -->
-         <div class="modal fade" id="filterPriceModal" tabindex="-1" aria-labelledby="filterPriceModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="filterPriceModalLabel">Filtrar por precio</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <label for="maxPrice" class="form-label">Ingrese un precio máximo</label>
-                     <input type="number" id="maxPrice" class="form-control">
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-primary d-flex justify-content-start" id="applyFilter">Aplicar filtro</button>
-                     <button type="button" class="btn btn-secondary btn-delete" id="deleteFilter">Borrar Filtro</button>
                   </div>
                </div>
             </div>
@@ -121,7 +108,8 @@
             </div>
          </div>
       </footer>
+      <!-- Scripts -->
       <script src="../js/bootstrap.bundle.min.js"></script>
-      <script src="../js/cart/index.js"></script>    
+      <script src="../js/cart/index.js"></script>
    </body>
 </html>
