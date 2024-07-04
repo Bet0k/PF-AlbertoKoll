@@ -14,11 +14,22 @@ class Pokemon {
 }
 
 // Función para obtener cartas desde la API
-const getCardsFromAPI = async (query = '', pageSize = 4) => {
+const getCardsFromAPI = async (query = '', pageSize = 12) => {
     try {
         const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=${pageSize}`);
         const data = await response.json();
-        return data.data;
+        if (data.data.length === 0) {
+            showModal('#cardNotFound', `
+                <div class="modal-content-wrapper">
+                    <p>No pudimos encontrar cartas con tu búsqueda. Por favor intentá nuevamente con otra carta</p>
+                </div>
+            `);
+            createProductsFromAPI()
+        }
+        else{
+            return data.data;
+        }
+
     } catch (error) {
         console.error('Error fetching data from API', error);
         return [];
@@ -26,7 +37,7 @@ const getCardsFromAPI = async (query = '', pageSize = 4) => {
 };
 
 // Crear los productos desde la API
-const createProductsFromAPI = async (query = '', pageSize = 4) => {
+const createProductsFromAPI = async (query = '', pageSize = 12) => {
     root.innerHTML = '';
     const cards = await getCardsFromAPI(query, pageSize);
     cards.forEach(card => {
@@ -91,7 +102,7 @@ const loadEvents = (cards) => {
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchInput').value.trim();
     if (query) {
-        createProductsFromAPI(`name:${query}`, 30);
+        createProductsFromAPI(`name:"${query}"`, 30);
     } else {
         createProductsFromAPI();
     }
