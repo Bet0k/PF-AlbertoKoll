@@ -4,31 +4,31 @@
     margin: 15px;
     padding: 15px;
     text-align: center;
-    max-width: 300px;
-
+    max-width: 400px;
+  
     h3 {
-        font-size: 25px;
-        margin: 15px;
+      font-size: 25px;
+      margin: 15px;
     }
-
+  
     h4 {
-        font-size: 20px;
-        margin: 5px;
+      font-size: 20px;
+      margin: 5px;
     }
-
+  
     h5 {
-        font-size: 15px;
-        margin: 5px;
+      font-size: 15px;
+      margin: 5px;
     }
-}
-
-#cart-root {
+  }
+  
+  #cart-root {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-#finalizeBtn{
+  }
+  
+  #finalizeBtn {
     display: block;
     border: none;
     border-radius: 5px;
@@ -40,21 +40,21 @@
     color: white;
     cursor: pointer;
     text-align: center; /* Asegura que el texto esté centrado */
-
+  
     &:hover {
-        color: red;
+      color: red;
     }
-}
-
-h4{
+  }
+  
+  h4 {
     margin: 20px;
-}
-
-.total-amount {
+  }
+  
+  .total-amount {
     font-size: 25px;
-}
-
-.quantity-btn {
+  }
+  
+  .quantity-btn {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -84,10 +84,19 @@ h4{
     font-size: 20px;
   }
   
-#confirmPurchase{
+  #confirmPurchase {
     background-color: black;
-    
+  
     &:hover {
-        color: red;
-      }
-}
+      color: red;
+    }
+  }
+  
+  .item-name {
+    /* Limita la altura máxima del nombre del ítem y recorta el texto con puntos suspensivos */
+    max-height: 2em; /* Ajusta según la altura deseada */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
