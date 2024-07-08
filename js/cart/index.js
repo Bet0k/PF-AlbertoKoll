@@ -18,8 +18,8 @@ class Pokemon {
 const getCardsFromAPI = async (query = '', pageSize = 12) => {
    try {
       const response = await fetch(`https://api.pokemontcg.io/v2/cards?q=${query}&pageSize=${pageSize}`);
-      const data = await response.json();
-      if (data.data.length === 0) {
+      const { data } = await response.json();
+      if (data.length === 0) {
          showModal('#cardNotFound', `
                 <div class="modal-content-wrapper">
                     <p>No pudimos encontrar cartas con tu búsqueda. Por favor intentá nuevamente con otra carta</p>
@@ -28,7 +28,7 @@ const getCardsFromAPI = async (query = '', pageSize = 12) => {
          document.querySelector('#searchInput').value = '';
          createProductsFromAPI()
       } else {
-         return data.data;
+         return data;
       }
    } catch (error) {
       console.error('Error fetching data from API', error);
