@@ -73,7 +73,7 @@ const loadEvents = (cards) => {
 			const selectedCard = cards.find(card => card.id === button.id);
 			if (selectedCard) {
 				const price = selectedCard.cardmarket ? selectedCard.cardmarket.prices.averageSellPrice : 0;
-				const existingPokemon = arrayPokemon.find(pokemon => pokemon.name === selectedCard.name);
+				const existingPokemon = arrayPokemon.find(pokemon => pokemon.name === selectedCard.id);
 				if (!existingPokemon) {
 					totalAmount += price;
 					arrayPokemon.push(new Pokemon(selectedCard.name, selectedCard.set.name, selectedCard.images.small, price, 1));
