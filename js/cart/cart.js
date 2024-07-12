@@ -1,44 +1,47 @@
-document.addEventListener('DOMContentLoaded', () => {
+function updateCartView() {
 	const cartRoot = document.getElementById('cart-root');
 	const totalAmountElement = document.getElementById('total-amount');
 
 	let cart = JSON.parse(localStorage.getItem('cart')) || [];
 	let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
 
+	// Limpiar el contenido actual
+	cartRoot.innerHTML = '';
+
 	if (cart.length > 0) {
 		cart.forEach((item, index) => {
 			const card = document.createElement('div');
 			card.classList.add('cardCart');
 			card.innerHTML = `
-                <img src='${item.image}' alt='${item.description}' class='product-img'>
-                <div class="product-info">
-                    <h3>${item.name}</h3>
-                    <h4>Precio: ${item.price}$</h4>
-                    <div class="quantity-container">
-                        <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
-                    </div>
-                </div>
-            `;
+				 <img src='${item.image}' alt='${item.description}' class='product-img'>
+				 <div class="product-info">
+					 <h3>${item.name}</h3>
+					 <h4>Precio: ${item.price}$</h4>
+					 <div class="quantity-container">
+						 <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
+						 <span class="quantity">${item.quantity}</span>
+						 <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
+					 </div>
+				 </div>
+			 `;
 			cartRoot.appendChild(card);
 		});
 
 		totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount.toFixed(2)}$</span>`;
+
+		// Re-agregar eventos a los botones de cambiar cantidad
+		const quantityButtons = document.querySelectorAll('.quantity-btn');
+		quantityButtons.forEach(button => {
+			button.addEventListener('click', (event) => {
+				const index = event.target.dataset.index;
+				const action = event.target.dataset.action;
+				updateQuantity(index, action);
+			});
+		});
 	} else {
 		cartRoot.innerText = 'No hay productos en el carrito.';
 	}
-
-	// Agregar evento a los botones de cambiar cantidad
-	const quantityButtons = document.querySelectorAll('.quantity-btn');
-	quantityButtons.forEach(button => {
-		button.addEventListener('click', (event) => {
-			const index = event.target.dataset.index;
-			const action = event.target.dataset.action;
-			updateQuantity(index, action);
-		});
-	});
-});
+}
 
 function updateQuantity(index, action) {
 	let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -65,51 +68,6 @@ function updateQuantity(index, action) {
 
 	// Actualizar la vista sin recargar la página
 	updateCartView();
-}
-
-function updateCartView() {
-	const cartRoot = document.getElementById('cart-root');
-	const totalAmountElement = document.getElementById('total-amount');
-
-	let cart = JSON.parse(localStorage.getItem('cart')) || [];
-	let totalAmount = parseFloat(localStorage.getItem('totalAmount')) || 0;
-
-	// Limpiar el contenido actual
-	cartRoot.innerHTML = '';
-
-	if (cart.length > 0) {
-		cart.forEach((item, index) => {
-			const card = document.createElement('div');
-			card.classList.add('cardCart');
-			card.innerHTML = `
-                <img src='${item.image}' alt='${item.description}' class='product-img'>
-                <div class="product-info">
-                    <h3>${item.name}</h3>
-                    <h4>Precio: ${item.price}$</h4>
-                    <div class="quantity-container">
-                        <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
-                    </div>
-                </div>
-            `;
-			cartRoot.appendChild(card);
-		});
-
-		totalAmountElement.innerHTML = `<span class="total-amount">Monto total: ${totalAmount.toFixed(2)}$</span>`;
-
-		// Re-agregar eventos a los botones de cambiar cantidad
-		const quantityButtons = document.querySelectorAll('.quantity-btn');
-		quantityButtons.forEach(button => {
-			button.addEventListener('click', (event) => {
-				const index = event.target.dataset.index;
-				const action = event.target.dataset.action;
-				updateQuantity(index, action);
-			});
-		});
-	} else {
-		cartRoot.innerText = 'No hay productos en el carrito.';
-	}
 }
 
 document.getElementById('purchaseForm').addEventListener('submit', function(event) {
@@ -144,3 +102,5 @@ function finalizePurchase() {
 		noCardsModal.show();
 	}
 }
+
+updateCartView();

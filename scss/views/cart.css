@@ -7,17 +7,14 @@
   text-align: center;
   max-width: 400px;
 }
-
 .cardCart h3 {
   font-size: 25px;
   margin: 15px;
 }
-
 .cardCart h4 {
   font-size: 20px;
   margin: 5px;
 }
-
 .cardCart h5 {
   font-size: 15px;
   margin: 5px;
@@ -42,7 +39,6 @@
   cursor: pointer;
   text-align: center; /* Asegura que el texto esté centrado */
 }
-
 #finalizeBtn:hover {
   color: red;
 }
@@ -68,7 +64,6 @@ h4 {
   text-align: center;
   line-height: 20px;
 }
-
 .quantity-btn:hover {
   color: red;
 }
@@ -87,7 +82,6 @@ h4 {
 #confirmPurchase {
   background-color: black;
 }
-
 #confirmPurchase:hover {
   color: red;
 }
@@ -99,7 +93,5 @@ h4 {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-
 
 /*# sourceMappingURL=cart.css.map */
