@@ -56,9 +56,11 @@ function updateQuantity(index, action) {
 		if (item.quantity > 1) {
 			item.quantity -= 1;
 			totalAmount -= item.price;
+			totalAmount = parseFloat(totalAmount.toFixed(2));
 		} else {
 			totalAmount -= item.price;
 			cart.splice(index, 1);
+			totalAmount = parseFloat(totalAmount.toFixed(2));
 			window.location.reload();
 		}
 	}
