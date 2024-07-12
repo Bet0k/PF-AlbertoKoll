@@ -360,7 +360,7 @@ p {
 .buyCardsSection div .button:hover {
   color: red;
 }
-.buyCardsSection div .button.out-of-stock {
+.buyCardsSection div .button .out-of-stock {
   background-color: gray;
   cursor: not-allowed;
 }
