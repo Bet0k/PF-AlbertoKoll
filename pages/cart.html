@@ -1,158 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.cdnfonts.com/css/quantico" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="shortcut icon" href="../images/pokeball-xIcon.webp" type="image/x-icon">
-    <title>Carrito Pokémon TCG</title>
-    <meta name="description" content="Juego de cartas coleccionables de Pokémon.">
-    <meta name="keywords" content="Pokémon, cartas pokemon, TCG, pikachu, Trading Card Game, Pokemon Trading Card Game">
-    <meta property="og:title" content="Pokémon TCG">
-    <meta property="og:description" content="Combate con otros jugadores de todo el mundo en Pokémon TCG! Los jugadores pueden combatir, coleccionar cartas increíbles, construir barajas y poner a prueba sus habilidades con los desafíos diarios.">
-    <meta property="og:image" content="https://pokemon-tcg-bk.netlify.app/images/logo-tcg.webp">
-    <link rel="stylesheet" href="../styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-</head>
-<body>
-    <header class="bg-black" data-bs-theme="dark">
-        <nav class="navbar navbar-expand-lg">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://fonts.cdnfonts.com/css/quantico" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <link rel="shortcut icon" href="../images/pokeball-xIcon.webp" type="image/x-icon">
+      <title>Carrito Pokémon TCG</title>
+      <meta name="description" content="Juego de cartas coleccionables de Pokémon.">
+      <meta name="keywords" content="Pokémon, cartas pokemon, TCG, pikachu, Trading Card Game, Pokemon Trading Card Game">
+      <meta property="og:title" content="Pokémon TCG">
+      <meta property="og:description" content="Combate con otros jugadores de todo el mundo en Pokémon TCG! Los jugadores pueden combatir, coleccionar cartas increíbles, construir barajas y poner a prueba sus habilidades con los desafíos diarios.">
+      <meta property="og:image" content="https://pokemon-tcg-bk.netlify.app/images/logo-tcg.webp">
+      <link rel="stylesheet" href="../styles/bootstrap.min.css">
+      <link rel="stylesheet" href="../css/main.css">
+   </head>
+   <body>
+      <header class="bg-black" data-bs-theme="dark">
+         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../index.html"><img src="../images/logo-banner.webp" width="200px"
-                    alt="Logo Pokémon TCG"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto w-100 d-flex justify-content-evenly">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/decks.html">Decks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/tournaments.html">Torneos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/players.html">Jugadores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/buyCards.html">Compra Cartas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/contact.html">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
+               <a class="navbar-brand" href="../index.html"><img src="../images/logo-banner.webp" width="200px"
+                  alt="Logo Pokémon TCG"></a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav me-auto w-100 d-flex justify-content-evenly">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/decks.html">Decks</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/tournaments.html">Torneos</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/players.html">Jugadores</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/buyCards.html">Compra Cartas</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../pages/contact.html">Contacto</a>
+                     </li>
+                  </ul>
+               </div>
             </div>
-        </nav>
-    </header>
-    <main>
-        <h1>Finaliza tu compra aquí!</h1>
-        <p>Revisá bien la cantidad y las cartas, luego finalizá la compra!</p>
-        <div id="cart-root"></div>
-        <h2 id="total-amount"></h2>
-        <button id="finalizeBtn" onclick="finalizePurchase()">Finalizar Compra</button>
-        <!-- Modal de pago exitoso -->
-        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+         </nav>
+      </header>
+      <main>
+         <h1>Finaliza tu compra aquí!</h1>
+         <p>Revisá bien la cantidad y las cartas, luego finalizá la compra!</p>
+         <div id="cart-root"></div>
+         <h2 id="total-amount"></h2>
+         <button id="finalizeBtn" onclick="finalizePurchase()">Finalizar Compra</button>
+         <!-- Modal de pago exitoso -->
+         <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="paymentModalLabel">Finalizar Compra</h5>
-                    </div>
-                    <div class="modal-body" id="paymentModalBody">
-                        <form id="purchaseForm">
-                            <div>
-                                <div class="form-group">
-                                    <label for="form_firstname">Nombre</label>
-                                    <input id="form_firstname" type="text" name="firstname" class="form-control" placeholder="Nombre" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form_lastname">Apellido</label>
-                                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Apellido" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="form_email">Email</label>
-                                    <input id="form_email" type="email" name="email" class="form-control" placeholder="pokemon@email.com" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress" class="form-label">Dirección</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="Calle Falsa 123" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputCity" class="form-label">Ciudad</label>
-                                <input type="text" class="form-control" id="inputCity" placeholder="Pueblo Paleta" required>
-                            </div>
-                            <div class="col-12"></div>
-                            <select class="form-select mt-3 mb-3" aria-label="Default select example" required>
-                                <option value="" selected disabled>Seleccioná tu método de pago</option>
-                                <option value="1">Tarjeta de crédito</option>
-                                <option value="2">Tarjeta de débito</option>
-                                <option value="3">Transferencia Bancaria</option>
-                                <option value="4">Efectivo</option>
-                            </select>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Confirmar Compra</button>
-                                <button type="button" class="btn btn-secondary btn-delete" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="paymentModalLabel">Finalizar Compra</h5>
+                  </div>
+                  <div class="modal-body" id="paymentModalBody">
+                     <form id="purchaseForm">
+                        <div>
+                           <div class="form-group">
+                              <label for="form_firstname">Nombre</label>
+                              <input id="form_firstname" type="text" name="firstname" class="form-control" placeholder="Nombre" required>
+                           </div>
+                           <div class="form-group">
+                              <label for="form_lastname">Apellido</label>
+                              <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Apellido" required>
+                           </div>
+                           <div class="form-group">
+                              <label for="form_email">Email</label>
+                              <input id="form_email" type="email" name="email" class="form-control" placeholder="pokemon@email.com" required>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="inputAddress" class="form-label">Dirección</label>
+                           <input type="text" class="form-control" id="inputAddress" placeholder="Calle Falsa 123" required>
+                        </div>
+                        <div class="form-group">
+                           <label for="inputCity" class="form-label">Ciudad</label>
+                           <input type="text" class="form-control" id="inputCity" placeholder="Pueblo Paleta" required>
+                        </div>
+                        <div class="col-12"></div>
+                        <select class="form-select mt-3 mb-3" aria-label="Default select example" required>
+                           <option value="" selected disabled>Seleccioná tu método de pago</option>
+                           <option value="1">Tarjeta de crédito</option>
+                           <option value="2">Tarjeta de débito</option>
+                           <option value="3">Transferencia Bancaria</option>
+                           <option value="4">Efectivo</option>
+                        </select>
+                        <div class="modal-footer">
+                           <button type="submit" class="btn btn-default">Confirmar Compra</button>
+                           <button type="button" class="btn btn-secondary btn-delete" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!-- Modal de confirmación de compra -->
-        <div class="modal fade" id="purchaseConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="purchaseConfirmationModalLabel" aria-hidden="true">
+         </div>
+         <!-- Modal de confirmación de compra -->
+         <div class="modal fade" id="purchaseConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="purchaseConfirmationModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="purchaseConfirmationModalLabel">¡Gracias por tu compra!</h5>
-                    </div>
-                    <div class="modal-body">
-                        Tu pedido ha sido procesado exitosamente.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-default" id="exitBuy" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="purchaseConfirmationModalLabel">¡Gracias por tu compra!</h5>
+                  </div>
+                  <div class="modal-body">
+                     Tu pedido ha sido procesado exitosamente.
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary btn-default" id="exitBuy" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+               </div>
             </div>
-        </div>
-        <!-- Modal de error -->
-        <div class="modal fade" id="noCardsModal" tabindex="-1" aria-labelledby="noCardsModalLabel" aria-hidden="true">
+         </div>
+         <!-- Modal de error -->
+         <div class="modal fade" id="noCardsModal" tabindex="-1" aria-labelledby="noCardsModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="noCardsModalLabel">Ups!</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Tu carrito está vacío!</p>
-                        <p>Por favor, seleccioná al menos una carta para poder efectuar la compra.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-default" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="noCardsModalLabel">Ups!</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <p>Tu carrito está vacío!</p>
+                     <p>Por favor, seleccioná al menos una carta para poder efectuar la compra.</p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary btn-default" data-bs-dismiss="modal">Cerrar</button>
+                  </div>
+               </div>
             </div>
-        </div>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script src="../js/cart/cart.js"></script>
-    </main>
-    <footer>
-        <div class="text-center footer">
+         </div>
+      </main>
+      <footer>
+         <div class="text-center footer">
             <div class="card-body">
-                <p class="card-title p-2 footer-title">Seguinos en redes!</p>
-                <div class="row-mine">
-                    <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://www.twitch.tv/pokemontcg"><i class="fa-brands fa-twitch"></i></a>
-                </div>
+               <p class="card-title p-2 footer-title">Seguinos en redes!</p>
+               <div class="row-mine">
+                  <a href="https://twitter.com/PokemonTCG"><i class="fa-brands fa-x-twitter"></i></a>
+                  <a href="https://www.instagram.com/pokemontcg"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.youtube.com/@pokemon"><i class="fa-brands fa-youtube"></i></a>
+                  <a href="https://www.twitch.tv/pokemontcg"><i class="fa-brands fa-twitch"></i></a>
+               </div>
             </div>
             <div class="row-mine">
-                <p>Página sin fines de lucro || Alberto Koll ©</p>
+               <p>Página sin fines de lucro || Alberto Koll ©</p>
             </div>
-        </div>
-    </footer>
-</body>
+         </div>
+      </footer>
+      <!-- Scripts -->
+      <script src="../js/bootstrap.bundle.min.js"></script>
+      <script src="../js/cart/index.js"></script>
+   </body>
 </html>
