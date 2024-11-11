@@ -5,6 +5,7 @@ I am taking the Web Development course at CoderHouse.
 For this course I set the goal of making a page about a game from one of my favorite series: Pokémon.
 
 When I was younger I collected cards, today I still buy cards and play the Pokémon TCG online game.
+Project on Netlify: https://pokemon-tcg-bk.netlify.app/
 Hope you like.
 Thank you.
 
@@ -28,6 +29,7 @@ Estoy realizando el curso de Desarrollo Web en CoderHouse.
 Para dicho curso me puse como objevio realizar una página sobre un juego de una de mis series favoritas: Pokémon.
 
 Cuando era más chico yo coleccionaba las cartas, hoy en día sigo comprando cartas y jugando el juego online de Pokémon TCG.
+Proyecto en Netlify: https://pokemon-tcg-bk.netlify.app/
 Espero que les guste.
 Gracias.
 
